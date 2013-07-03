@@ -7,8 +7,7 @@ function onSubmit(event){
 }
 
 function onSuccess(success){
-  returnedObj = JSON.parse(success);
-  $("#color_me li:nth-child(" + returnedObj.cell + ")").css('background-color', returnedObj.color);
+  $("#color_me li:nth-child(" + success.cell + ")").css('background-color', success.color);
 }
 
 $(document).ready(onReady);
