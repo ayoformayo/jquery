@@ -1,17 +1,14 @@
 function onReady() {
-  $('#get_color').submit(onSubmit);
+  $('#get_color').on('click', onSubmit);
 }
 
 function onSubmit(event){
-  event.preventDefault();
-  var serialized = $('#get_color').serialized;
-  $.post('/color', serialized, onSuccess);
+    $.post('/color', null, onSuccess);
 }
 
 function onSuccess(success){
-
-  alert(color)
-
+  returnedObj = JSON.parse(success);
+  $("#color_me li:nth-child(" + returnedObj.cell + ")").css('background-color', returnedObj.color);
 }
 
 $(document).ready(onReady);

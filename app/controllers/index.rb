@@ -9,5 +9,5 @@ post '/color' do
 
   cell= rand(1..9)
   color= "#" + "%06x" % (rand * 0xffffff)
-  
+  "{\"cell\":#{rand(1..9)}, \"color\":\"#{"#" + "%06x" % (rand * 0xffffff)}\"}"
 end
