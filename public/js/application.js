@@ -1,13 +1,17 @@
-function onReady() {
-  $('#get_color').on('click', onSubmit);
-}
+$(document).ready(function(){
+  $('a').click(prevent);
+  $('#get_color').on('click', onClick);
 
-function onSubmit(event){
-    $.post('/color', null, onSuccess);
-}
+});
+
+function prevent(event){
+  event.preventDefault();
+};
+
+function onClick(){
+  $.post('/color', onSuccess);
+};
 
 function onSuccess(success){
-  $("#color_me li:nth-child(" + success.cell + ")").css('background-color', success.color);
-}
-
-$(document).ready(onReady);
+  $("#color_me li:nth-child(" + success.cell + ")").css("background-color", success.color);
+};
